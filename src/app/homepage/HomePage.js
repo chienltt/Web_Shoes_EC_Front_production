@@ -1,8 +1,13 @@
 import React from "react";
 const HomePage = (props)=>{
     return(
-        <div>
-            Chao cac ban minh la HomePage!s
+        <div className={"main"}>
+            <div className={"header"}>
+                
+            </div>
+            <div className={"event-info"}></div>
+            <div className={"body"}></div>
+            <div className={"footer"}></div>
         </div>
     )
 }
