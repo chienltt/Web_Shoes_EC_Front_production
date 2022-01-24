@@ -1,11 +1,12 @@
 import React from "react";
+import Banner from "./component/Banner";
 const HomePage = (props)=>{
+    console.log("okok123")
     return(
-        <div className={"main"}>
-            <div className={"header"}>
-                
+        <div className={"page-content"}>
+            <div className={"banner"}>
+                <Banner/>
             </div>
-            <div className={"event-info"}></div>
             <div className={"body"}></div>
             <div className={"footer"}></div>
         </div>

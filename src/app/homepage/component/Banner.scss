@@ -1,0 +1,15 @@
+#banner-image{
+  width: 200vw;
+  position: absolute;
+  transition: left 0.5s;
+  //top:0px;
+  left:0px;
+  #image-1{
+    width: 50%;
+    display: inline-block;
+  }
+  #image-2{
+    width: 50%;
+    display: inline-block;
+  }
+}
