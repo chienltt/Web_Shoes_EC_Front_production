@@ -2,28 +2,28 @@ import React from "react";
 import {renderRoutes} from "react-router-config";
 import "./DefaultPage.scss"
 import 'font-awesome/css/font-awesome.min.css';
-// import {ArrowRight, ArrowRightShort} from "react-bootstrap-icons";
 import {FaArrowRight, FaHeart, FaTimes} from "react-icons/fa";
-// import {AiOutlineSearch} from "react-icons/all";
 import {AiOutlineSearch} from "react-icons/ai"
 import {MdLocalGroceryStore} from "react-icons/md";
-// import {faArrowAltCircleRight} from "@fortawesome/free-regular-svg-icons";
+import {IoMdArrowDropdown} from "react-icons/io";
+import Banner from "./banner/Banner";
+
 const DefaultPage = (props) => {
     return (
         <div className={"main"}>
             <div className={"header"}>
                 <div className={"header-top"}>
-                    <div className={"list-item"}>
-                        <div className={"item"}>
-                            <FaArrowRight size={13} className={"icon"}/>
+                    <div className={"header-top-list"}>
+                        <div className={"header-list-item"}>
+                            <FaArrowRight size={13} className={"header-list-icon"}/>
                             SALE OFF NỮ
                         </div>
-                        <div className={"item"}>
-                            <FaArrowRight size={13} className={"icon"}/>
+                        <div className={"header-list-item"}>
+                            <FaArrowRight size={13} className={"header-list-icon"}/>
                             SALE OFF NAM
                         </div>
-                        <div className={"item"} style={{border: 'none'}}>
-                            <FaArrowRight size={13} className={"icon"}/>
+                        <div className={"header-list-item"} style={{border: 'none'}}>
+                            <FaArrowRight size={13} className={"header-list-icon"}/>
                             1900 638083
                         </div>
                         <div className={"disabled-header-top-btn"}>
@@ -41,13 +41,75 @@ const DefaultPage = (props) => {
                             <AiOutlineSearch size={20} className={"search-icon"} />
                         </div>
                         <div className={"header-middle-right"}>
-
-                            <tag className={"btn"} style={{margin:'0px'}} >Đăng nhập </tag> / <tag className={"btn"}  > Đăng ký</tag>
-                            <tag className={"btn"}> Theo dõi đơn hàng  </tag>
-                            <MdLocalGroceryStore className={"btn"} size={30}/>
-                            <FaHeart className={"btn"} size={25}/>
+                            <div className={"header-middle-login"}>
+                                <tag className={"header-middle-account"} >Đăng nhập </tag>
+                                <tag className={"header-middle-account"} >Đăng ký</tag>
+                            </div>
+                            <tag className={"header-middle-order header-middle-btn"} >Theo dõi đơn hàng</tag>
+                            <div className={"header-middle-cart header-middle-btn"}>
+                                <MdLocalGroceryStore size={30}/>
+                                <span className={"header-item-box"}>
+                                    <i className={"header-cart-count"}>0</i>
+                                </span>
+                            </div>
+                            <div className={"header-middle-favorite header-middle-btn"}>
+                                <FaHeart size={25}/>
+                                <span className={"header-item-box"}>
+                                    <i className={"header-favorite-count"}>0</i>
+                                </span>
+                            </div>
                         </div>
                     </div>
+                </div>
+                <div className={"header-bottom"}>
+                    <div className={"header-bottom-content"}>
+                        <ul className={"header-bottom-navbar"}>
+                            <li className="header-navbar-item">
+                                <a className="header-item-link" href="#">
+                                    Trang Chủ
+                                </a>
+                            </li>
+                            <li className="header-navbar-item">
+                                <a className="header-item-link" href="#">
+                                    Giày Nam
+                                    <IoMdArrowDropdown size={15} className={"header-navbar-dropdown"}/>
+                                </a>
+                            </li>
+                            <li className="header-navbar-item">
+                                <a className="header-item-link" href="#">
+                                    Giày Nữ
+                                    <IoMdArrowDropdown size={15} className={"header-navbar-dropdown"}/>
+                                </a>
+                            </li>
+                            <li className="header-navbar-item">
+                                <a className="header-item-link" href="#">
+                                    Thời Trang Nam
+                                    <IoMdArrowDropdown size={15} className={"header-navbar-dropdown"}/>
+                                </a>
+                            </li>
+                            <li className="header-navbar-item">
+                                <a className="header-item-link" href="#">
+                                    Thời Trang Nữ
+                                    <IoMdArrowDropdown size={15} className={"header-navbar-dropdown"}/>
+                                </a>
+                            </li>
+                            <li className="header-navbar-item">
+                                <a className="header-item-link" href="#">
+                                    Thời Trang Bé Yêu
+                                </a>
+                            </li>
+                            <li className="header-navbar-item">
+                                <a className="header-item-link" href="#">
+                                    Cảnh Báo Lừa Đảo
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div className={"container"}>
+                <div className={"container-banner"}>
+                    <Banner />
                 </div>
             </div>
             {renderRoutes(props.routes)}

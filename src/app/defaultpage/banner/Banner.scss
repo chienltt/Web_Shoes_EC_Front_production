@@ -1,0 +1,39 @@
+.banner-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+
+  .banner-slides {
+    width: 200%;
+    display: flex;
+
+    input {
+      display: none;
+    }
+
+    #radio1:checked ~ .first{
+      margin-left: 0;
+    }
+
+    #radio2:checked ~ .first{
+      margin-left: -50%;
+    }
+
+    .banner-slide {
+      width: 50%;
+      transition: 1s;
+
+      &-first {
+        background: url("../../../images/banner-1.png") center / cover no-repeat;
+        width: 100%;
+        padding-top: 29%;
+      }
+
+      &-second {
+        background: url("../../../images/banner-1.png") center / cover no-repeat;
+        width: 100%;
+        padding-top: 29%;
+      }
+    }
+  }
+}
