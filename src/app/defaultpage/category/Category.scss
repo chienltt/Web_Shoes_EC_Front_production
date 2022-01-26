@@ -1,0 +1,99 @@
+.category-product {
+  max-width: 1240px;
+
+  .category-product-title {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 35px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    .category-title-icon {
+      margin-right: 3px;
+    }
+  }
+
+  .category-product-box {
+    padding: 20px;
+    background-color: #F5F0F2;
+
+    .category-product-row {
+      position: relative;
+
+      .category-product-list {
+        display: flex;
+        background-color: #fff;
+        padding: 15px 0;
+        overflow: hidden;
+        margin: auto;
+
+        .category-product-item {
+          text-align: center;
+          padding: 0 10px;
+          margin-right: 10px;
+
+          .category-product-link {
+            text-decoration: none;
+            color: #333;
+
+            .category-product-image {
+              border-radius: 50%;
+              margin-bottom: 10px;
+            }
+          }
+
+          .category-product-image > img {
+            border-radius: 50%;
+            height: 171.667px;
+            width: 171.667px;
+          }
+
+          .category-product-link > span {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+          }
+        }
+      }
+
+      .category-product-arrow {
+        background-color: rgba(45, 45, 45, 0.62) !important;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        height: 60px;
+        width: 30px;
+        line-height: 60px;
+        z-index: 10;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #666;
+        text-align: center;
+        opacity: 0.2;
+
+        .category-arrow-icon {
+          color: #fff;
+        }
+      }
+
+      .category-product-arrow:hover {
+        opacity: 1;
+      }
+
+      .category-product-next {
+        right: 0;
+        left: auto;
+        border-radius: 4px 0 0 4px;
+      }
+
+      .category-product-prev {
+        right: auto;
+        left: 0;
+        border-radius: 0 4px 4px 0;
+      }
+    }
+  }
+}

@@ -7,6 +7,8 @@ import {AiOutlineSearch} from "react-icons/ai"
 import {MdLocalGroceryStore} from "react-icons/md";
 import {IoMdArrowDropdown} from "react-icons/io";
 import Banner from "./banner/Banner";
+import Category from "./category/Category";
+import Sale from "./sale/Sale"
 
 const DefaultPage = (props) => {
     return (
@@ -110,6 +112,12 @@ const DefaultPage = (props) => {
             <div className={"container"}>
                 <div className={"container-banner"}>
                     <Banner />
+                </div>
+                <div className={"container-category"}>
+                    <Category />
+                </div>
+                <div className={"container-sale"}>
+                    <Sale />
                 </div>
             </div>
             {renderRoutes(props.routes)}

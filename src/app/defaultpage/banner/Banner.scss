@@ -11,11 +11,11 @@
       display: none;
     }
 
-    #radio1:checked ~ .first{
+    #banner-radio1:checked ~ .first{
       margin-left: 0;
     }
 
-    #radio2:checked ~ .first{
+    #banner-radio2:checked ~ .first{
       margin-left: -50%;
     }
 
@@ -24,13 +24,13 @@
       transition: 1s;
 
       &-first {
-        background: url("../../../images/banner-1.png") center / cover no-repeat;
+        background: url("https://timan.vn/Thumb.ashx?s=1920&file=/UploadImages/shops/banner/tet-2022/1920X550/nam.jpg") center / cover no-repeat;
         width: 100%;
         padding-top: 29%;
       }
 
       &-second {
-        background: url("../../../images/banner-1.png") center / cover no-repeat;
+        background: url("https://timan.vn/Thumb.ashx?s=1920&file=/UploadImages/shops/banner/tet-2022/1920X550/nu.jpg") center / cover no-repeat;
         width: 100%;
         padding-top: 29%;
       }
