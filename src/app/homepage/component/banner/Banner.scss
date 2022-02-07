@@ -1,0 +1,35 @@
+#banner-image{
+  width: 200vw;
+  position: relative;
+  transition: left 0.5s;
+  animation: change-image 10s infinite;
+  //top:200px;
+  left:0px;
+  #image-1{
+    width: 50%;
+    display: inline-block;
+  }
+  #image-2{
+    width: 50%;
+    display: inline-block;
+  }
+}
+
+@keyframes change-image {
+  0%{
+    left: 0px;
+  }
+  45%{
+    left: 0px;
+  }
+  50%{
+    left: -100%;
+  }
+  95%{
+    left: -100%;
+  }
+  100%{
+    left: 0px;
+  }
+
+}

@@ -1,0 +1,40 @@
+.body-box{
+  position: relative;
+  margin-top: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20px 0 20px 0;
+  background-color: #F5F0F2;
+  overflow: hidden;
+}
+.selections-lists-content{
+  display: flex;
+  align-items: center;
+  transform: translate(0px);
+  transition: all 0s;
+}
+
+.swap-btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 30px;
+  height: 60px;
+  background-color: #666;
+  opacity: 0.2;
+  top: 50%;
+  transform: translate(0,-50%);
+}
+.pre{
+  left: 0;
+}
+.next{
+  right: 0;
+}
+.body-box:hover{
+  .swap-btn{
+    opacity: 1;
+  }
+}
