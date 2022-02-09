@@ -1,9 +1,9 @@
 import React from "react";
 import "./HomePage.scss";
-import Banner from "./banner/Banner";
-import Category from "./category/Category";
-import Sale from "./sale/Sale";
-import Popular from "./popular/Popular";
+import Banner from "./component/banner/Banner";
+import Category from "./component/category/Category";
+import Sale from "./component/sale/Sale";
+import Popular from "./component/popular/Popular";
 
 const HomePage = (props)=>{
     return(
