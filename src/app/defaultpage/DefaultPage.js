@@ -6,10 +6,6 @@ import {FaArrowRight, FaHeart, FaTimes} from "react-icons/fa";
 import {AiOutlineSearch} from "react-icons/ai"
 import {MdLocalGroceryStore} from "react-icons/md";
 import {IoMdArrowDropdown} from "react-icons/io";
-import Banner from "./banner/Banner";
-import Category from "./category/Category";
-import Sale from "./sale/Sale"
-import Popular from "./popular/Popular";
 
 const DefaultPage = (props) => {
     return (
@@ -108,20 +104,6 @@ const DefaultPage = (props) => {
                             </li>
                         </ul>
                     </div>
-                </div>
-            </div>
-            <div className={"container"}>
-                <div className={"container-banner"}>
-                    <Banner />
-                </div>
-                <div className={"container-category container-item"}>
-                    <Category />
-                </div>
-                <div className={"container-sale container-item"}>
-                    <Sale />
-                </div>
-                <div className={"container-popular container-item"}>
-                    <Popular />
                 </div>
             </div>
             {renderRoutes(props.routes)}
