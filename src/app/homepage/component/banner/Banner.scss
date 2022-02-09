@@ -1,0 +1,39 @@
+.banner-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+
+  .banner-slides {
+    width: 200%;
+    display: flex;
+
+    input {
+      display: none;
+    }
+
+    #banner-radio1:checked ~ .first{
+      margin-left: 0;
+    }
+
+    #banner-radio2:checked ~ .first{
+      margin-left: -50%;
+    }
+
+    .banner-slide {
+      width: 50%;
+      transition: 1s;
+
+      &-first {
+        background: url("https://timan.vn/Thumb.ashx?s=1920&file=/UploadImages/shops/banner/tet-2022/1920X550/nam.jpg") center / cover no-repeat;
+        width: 100%;
+        padding-top: 29%;
+      }
+
+      &-second {
+        background: url("https://timan.vn/Thumb.ashx?s=1920&file=/UploadImages/shops/banner/tet-2022/1920X550/nu.jpg") center / cover no-repeat;
+        width: 100%;
+        padding-top: 29%;
+      }
+    }
+  }
+}
