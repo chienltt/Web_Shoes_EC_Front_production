@@ -16,7 +16,7 @@ const Sale = () => {
     return (
         <div className={"sale-container"}>
             <div className={"sale-title"}>
-                <IoDiamondOutline size={30} className={"sale-title-icon"}/>
+                <IoDiamondOutline size={28} className={"sale-title-icon"}/>
                 Sale vô cực
             </div>
             <div className={"sale-slider"}>

@@ -106,7 +106,7 @@ const DefaultPage = (props) => {
                     </div>
                 </div>
             </div>
-            {renderRoutes(props.routes)}
+            {renderRoutes(props.route.routes)}
         </div>
     )
 }

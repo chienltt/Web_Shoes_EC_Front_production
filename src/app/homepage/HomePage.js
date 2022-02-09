@@ -8,7 +8,6 @@ import Popular from "./component/popular/Popular";
 const HomePage = (props)=>{
     return(
         <div className={"homepage"}>
-            xin chào mn.....
             <div className={"homepage-container"}>
                 <div className={"homepage-banner"}>
                     <Banner />
