@@ -8,6 +8,7 @@ import Popular from "./popular/Popular";
 const HomePage = (props)=>{
     return(
         <div className={"homepage"}>
+            xin chào mn.....
             <div className={"homepage-container"}>
                 <div className={"homepage-banner"}>
                     <Banner />
@@ -25,4 +26,4 @@ const HomePage = (props)=>{
         </div>
     )
 }
-export  default HomePage
+export default HomePage
