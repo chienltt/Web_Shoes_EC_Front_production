@@ -16,42 +16,25 @@
   }
 
   .sale-slider {
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
     overflow: hidden;
+    list-style: none;
     padding: 0;
+    z-index: 1;
 
     .sale-slides {
-      width: 200%;
       display: flex;
 
-      input {
-        display: none;
-      }
-
-      #sale-radio1:checked ~ .first{
-        margin-left: 0;
-      }
-
-      #sale-radio2:checked ~ .first{
-        margin-left: -50%;
-      }
-
       .sale-slide {
-        width: 50%;
-        transition: 0.3s;
+        height: 100%;
+        width: 100%;
+        flex-shrink: 0;
+        position: relative;
 
-        &-first {
-          background: url("https://timan.vn/Thumb.ashx?s=1200&file=/UploadImages/shops/banner/tet-2022/1500X360/nu.jpg") center / cover no-repeat;
+        .sale-slide-image {
           width: 100%;
-          padding-top: 24%;
-          border-radius: 4px;
-        }
-
-        &-second {
-          background: url("https://timan.vn/Thumb.ashx?s=1200&file=/UploadImages/shops/banner/tet-2022/1500X360/nam.jpg") center / cover no-repeat;
-          width: 100%;
-          padding-top: 24%;
-          border-radius: 4px;
         }
       }
     }

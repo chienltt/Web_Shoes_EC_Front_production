@@ -22,16 +22,20 @@
       position: relative;
 
       .category-product-list {
-        display: flex;
         background-color: #fff;
         padding: 15px 0;
-        overflow: hidden;
         margin: auto;
+        display: flex;
+        //overflow: hidden;
+        position: relative;
+        transition: transform 0.25s ease;
 
         .category-product-item {
           text-align: center;
           padding: 0 10px;
           margin-right: 10px;
+          position: relative;
+          user-select: none;
 
           .category-product-link {
             text-decoration: none;
@@ -55,6 +59,7 @@
             letter-spacing: 0.05em;
           }
         }
+
       }
 
       .category-product-arrow {
