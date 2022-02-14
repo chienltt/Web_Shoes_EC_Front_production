@@ -26,6 +26,7 @@
 
     .sale-slides {
       display: flex;
+      transition: transform 0.25s ease;
 
       .sale-slide {
         height: 100%;

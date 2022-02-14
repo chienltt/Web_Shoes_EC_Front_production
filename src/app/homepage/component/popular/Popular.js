@@ -34,37 +34,35 @@ const Popular = () => {
         });
     }, 500)
 
-    // setInterval(() => {
-    //     if (index < 2 && index >= 0 && checkSlide) {
-    //         handleChangeSlide(1)
-    //     } else {
-    //         checkSlide = false
-    //         if (count < 2) {
-    //             handleChangeSlide(-1)
-    //             count++
-    //         } else {
-    //             checkSlide = true
-    //             positionX = 0
-    //             index = 0
-    //             count = 0
-    //         }
-    //     }
-    // }, 3000)
+    setInterval(() => {
+        if (index < 1 && index >= 0 && checkSlide) {
+            handleChangePopular(".product-box2-row", ".product-box2-slide",1)
+        } else {
+            checkSlide = false
+            if (count < 1) {
+                handleChangePopular(".product-box2-row", ".product-box2-slide",-1)
+                count++
+            } else {
+                checkSlide = true
+                positionX = 0
+                index = 0
+                count = 0
+            }
+        }
+    }, 3000)
 
-    const handleChangeSlide = (dir) => {
+    const handleChangePopular = (classSlider, classItem, dir, numberSlide) => {
         const $ = document.querySelector.bind(document);
         const $$ = document.querySelectorAll.bind(document);
 
-        const productSlider = $(".product-box-row");
-        const productItems = $$(".product-row-slide");
+        const productSlider = $(`${classSlider}`);
+        const productItems = $$(`${classItem}`);
         const productItemWidth = productItems[0].offsetWidth;
         const productItemLength = productItems.length;
 
-        console.log("handle change slide")
-
         if (dir === 1) {
-            if (index >= productItemLength - 1) {
-                index = productItemLength - 1;
+            if (index >= productItemLength - numberSlide) {
+                index = productItemLength - numberSlide;
                 return;
             }
             positionX = positionX - productItemWidth;
@@ -185,10 +183,12 @@ const Popular = () => {
                                     {showHotProduct()}
                                 </div>
                             </div>
-                            <div className={"product-popular-arrow product-popular-next"}>
+                            <div className={"product-popular-arrow product-popular-next"}
+                                 onClick={() => handleChangePopular(".product-box-row", ".product-row-slide", 1, 7)}>
                                 <AiOutlineRight size={30} className={"product-popular-arrow-icon"}/>
                             </div>
-                            <div className={"product-popular-arrow product-popular-prev"}>
+                            <div className={"product-popular-arrow product-popular-prev"}
+                                 onClick={() => handleChangePopular(".product-box-row", ".product-row-slide", -1, 7)}>
                                 <AiOutlineLeft size={30} className={"product-popular-arrow-icon"}/>
                             </div>
                         </div>
@@ -215,10 +215,12 @@ const Popular = () => {
                                     {showHotImage()}
                                 </div>
                             </div>
-                            <div className={"product-popular-arrow product-popular-next"} onClick={() => handleChangeSlide(1)}>
+                            <div className={"product-popular-arrow product-popular-next"}
+                                 onClick={() => handleChangePopular(".product-box2-row", ".product-box2-slide", 1, 1)}>
                                 <AiOutlineRight size={30} className={"product-popular-arrow-icon"}/>
                             </div>
-                            <div className={"product-popular-arrow product-popular-prev"} onClick={() => handleChangeSlide(-1)}>
+                            <div className={"product-popular-arrow product-popular-prev"}
+                                 onClick={() => handleChangePopular(".product-box2-row", ".product-box2-slide", -1, 1)}>
                                 <AiOutlineLeft size={30} className={"product-popular-arrow-icon"}/>
                             </div>
                         </div>
