@@ -4,12 +4,16 @@ import {AiOutlineFire, AiOutlineLeft, AiOutlineRight, AiOutlineStar} from "react
 
 const Popular = () => {
 
+    let positionX = 0;
+    let index = 0;
+    let checkSlide = true;
+    let count = 0;
+
     setTimeout(() => {
         const $ = document.querySelector.bind(document);
         const $$ = document.querySelectorAll.bind(document);
 
         const tabs = $$(".product-tab-item");
-        // const panes = $$(".product-row-slide");
 
         const tabActive = $(".active");
         const line = $(".product-tab-line");
@@ -18,32 +22,76 @@ const Popular = () => {
         line.style.width = tabActive.offsetWidth + "px";
 
         tabs.forEach((tab, index) => {
-            // const pane = panes[index];
 
             tab.onclick = function () {
                 $(".active").classList.remove("active");
-                // $(".active2").classList.remove("active2");
 
                 line.style.left = this.offsetLeft + "px";
                 line.style.width = this.offsetWidth + "px";
 
                 this.classList.add("active");
-                // pane.classList.add("active2");
             };
         });
-    }, 500);
+    }, 500)
 
+    // setInterval(() => {
+    //     if (index < 2 && index >= 0 && checkSlide) {
+    //         handleChangeSlide(1)
+    //     } else {
+    //         checkSlide = false
+    //         if (count < 2) {
+    //             handleChangeSlide(-1)
+    //             count++
+    //         } else {
+    //             checkSlide = true
+    //             positionX = 0
+    //             index = 0
+    //             count = 0
+    //         }
+    //     }
+    // }, 3000)
+
+    const handleChangeSlide = (dir) => {
+        const $ = document.querySelector.bind(document);
+        const $$ = document.querySelectorAll.bind(document);
+
+        const productSlider = $(".product-box-row");
+        const productItems = $$(".product-row-slide");
+        const productItemWidth = productItems[0].offsetWidth;
+        const productItemLength = productItems.length;
+
+        console.log("handle change slide")
+
+        if (dir === 1) {
+            if (index >= productItemLength - 1) {
+                index = productItemLength - 1;
+                return;
+            }
+            positionX = positionX - productItemWidth;
+            productSlider.style = `transform: translateX(${positionX}px)`;
+            index++;
+
+        } else if (dir === -1) {
+            if (index <= 0) {
+                index = 0;
+                return;
+            }
+            positionX = positionX + productItemWidth;
+            productSlider.style = `transform: translateX(${positionX}px)`;
+            index--;
+        }
+    }
 
     const arrayProduct = [
+        "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA09/giay-the-thao-vai-luoi-nam-ta09-1.jpg",
         "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA01/giay-the-thao-vai-luoi-nam-ta01-1.jpg",
         "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA01/giay-the-thao-vai-luoi-nam-ta01-1.jpg",
         "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA01/giay-the-thao-vai-luoi-nam-ta01-1.jpg",
+        "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA09/giay-the-thao-vai-luoi-nam-ta09-1.jpg",
         "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA01/giay-the-thao-vai-luoi-nam-ta01-1.jpg",
         "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA01/giay-the-thao-vai-luoi-nam-ta01-1.jpg",
         "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA01/giay-the-thao-vai-luoi-nam-ta01-1.jpg",
-        "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA01/giay-the-thao-vai-luoi-nam-ta01-1.jpg",
-        "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA01/giay-the-thao-vai-luoi-nam-ta01-1.jpg",
-        "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA01/giay-the-thao-vai-luoi-nam-ta01-1.jpg"
+        "https://timan.vn/Thumb.ashx?s=120&file=/UploadImages/shops/giay-nam/TA09/giay-the-thao-vai-luoi-nam-ta09-1.jpg"
     ]
 
     const showHotProduct = () => {
@@ -167,10 +215,10 @@ const Popular = () => {
                                     {showHotImage()}
                                 </div>
                             </div>
-                            <div className={"product-popular-arrow product-popular-next"}>
+                            <div className={"product-popular-arrow product-popular-next"} onClick={() => handleChangeSlide(1)}>
                                 <AiOutlineRight size={30} className={"product-popular-arrow-icon"}/>
                             </div>
-                            <div className={"product-popular-arrow product-popular-prev"}>
+                            <div className={"product-popular-arrow product-popular-prev"} onClick={() => handleChangeSlide(-1)}>
                                 <AiOutlineLeft size={30} className={"product-popular-arrow-icon"}/>
                             </div>
                         </div>

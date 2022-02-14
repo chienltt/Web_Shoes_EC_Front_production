@@ -4,48 +4,54 @@ import {RiOrganizationChart} from "react-icons/ri";
 import {AiOutlineLeft, AiOutlineRight} from "react-icons/ai";
 
 const Category = () => {
-
     let positionX = 0;
     let index = 0;
+    let checkSlide = true;
+    let count = 0;
 
-    const handleClickSlide = () => {
+    setInterval(() => {
+        if (index < 6 && index >= 0 && checkSlide) {
+            handleChangeSlide(1)
+        } else {
+            checkSlide = false
+            if (count < 6) {
+                handleChangeSlide(-1)
+                count++
+            } else {
+                checkSlide = true
+                positionX = 0
+                index = 0
+                count = 0
+            }
+        }
+    }, 3000)
+
+    const handleChangeSlide = (dir) => {
         const $ = document.querySelector.bind(document);
         const $$ = document.querySelectorAll.bind(document);
 
-        const productList = $(".category-product-list");
+        const productSlider = $(".category-product-slider");
         const productItems = $$(".category-product-item");
-        const productNext = $(".category-product-next");
-        const productPrev = $(".category-product-prev");
         const productItemWidth = productItems[0].offsetWidth;
         const productItemLength = productItems.length;
 
-        productNext.addEventListener("click", () => {
-            handleChangeSlide(1)
-        });
-
-        productPrev.addEventListener("click", () => {
-            handleChangeSlide(-1)
-        });
-
-        const handleChangeSlide = (dir) => {
-            if (dir === 1) {
-                if (index >= productItemLength - 1) {
-                    index = productItemLength - 1;
-                    return;
-                }
-                positionX = positionX - productItemWidth;
-                productList.style = `transform: translateX(${positionX}px)`;
-                index++;
-
-            } else if (dir === -1) {
-                if (index <= 0) {
-                    index = 0;
-                    return;
-                }
-                positionX = positionX + productItemWidth;
-                productList.style = `transform: translateX(${positionX}px)`;
-                index--;
+        if (dir === 1) {
+            if (index >= productItemLength - 6) {
+                index = productItemLength - 6;
+                return;
             }
+            positionX = positionX - productItemWidth - 10;
+            productSlider.style = `transform: translateX(${positionX}px)`;
+            index++;
+
+        } else if (dir === -1) {
+            if (index <= 0) {
+                index = 0;
+                return;
+            }
+            positionX = positionX + productItemWidth + 10;
+            productSlider.style = `transform: translateX(${positionX}px)`;
+            index--;
         }
     }
 
@@ -93,12 +99,14 @@ const Category = () => {
             <div className={"category-product-box"}>
                 <div className={"category-product-row"}>
                     <div className={"category-product-list"}>
-                        {showCategoryProduct()}
+                        <div className={"category-product-slider"}>
+                            {showCategoryProduct()}
+                        </div>
                     </div>
-                    <div className={"category-product-arrow category-product-next"} onClick={handleClickSlide}>
+                    <div className={"category-product-arrow category-product-next"} onClick={() => handleChangeSlide(1)}>
                         <AiOutlineRight size={30} className={"category-arrow-icon"}/>
                     </div>
-                    <div className={"category-product-arrow category-product-prev"} onClick={handleClickSlide}>
+                    <div className={"category-product-arrow category-product-prev"} onClick={() => handleChangeSlide(-1)}>
                         <AiOutlineLeft size={30} className={"category-arrow-icon"}/>
                     </div>
                 </div>
